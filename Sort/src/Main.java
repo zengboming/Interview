@@ -9,7 +9,8 @@ public class Main {
 		//sort.DoubleSelectSort(a);
 		//sort.BubbleSort(a);
 		//sort.FastSort(a, 0, 9);
-		sort.MergeSort(a, 0, 9);
+		//sort.MergeSort(a, 0, 9);
+		sort.HeapSort(a);
 		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i]);
 		}
