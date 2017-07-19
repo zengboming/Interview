@@ -56,8 +56,12 @@ public class BinarySearchTree {
 		}
 	}
 	
+	public void put(int value) {
+		root = put(root, value);
+	}
+	
 	//返回的是根结点
-	public Node put(Node node, int value) {
+	private Node put(Node node, int value) {
 		//结点为空
 		if (node == null) {
 			System.out.println("put node value = " + value);
@@ -77,7 +81,10 @@ public class BinarySearchTree {
 	}
 	
 	//先序序列 根左右
-	public void getFontOrder(Node root) {
+	public void getFontOrder() {
+		getFontOrder(root);
+	}
+	private void getFontOrder(Node root) {
 		if (root == null) {
 			return;
 		}
@@ -88,7 +95,11 @@ public class BinarySearchTree {
 	}
 	
 	//中序序列 左根右
-	public void getMiddleOrder(Node root) {
+	public void getMiddleOrder() {
+		getMiddleOrder(root);
+	}
+	
+	private void getMiddleOrder(Node root) {
 		if (root == null) {
 			return;
 		}
@@ -99,7 +110,11 @@ public class BinarySearchTree {
 	}
 	
 	//后序序列 左友根
-	public void getBehindOrder(Node root) {
+	public void getBehindOrder() {
+		getBehindOrder(root);
+	}
+	
+	private void getBehindOrder(Node root) {
 		if (root == null) {
 			return;
 		}

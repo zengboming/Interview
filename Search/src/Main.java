@@ -10,22 +10,19 @@ public class Main {
 		//result = search.binarySearch(a, 0, 6, 9);
 		//result = search.insertionSearch(a, 0, 6, 8);
 		BinarySearchTree tree = new BinarySearchTree();
-		BinarySearchTree.Node root = tree.getRoot();
 		for (int i = 0; i < a.length; i++) {
-			root = tree.put(root, a[i]);
+			tree.put(a[i]);
 		}
-//		BinarySearchTree.Node node = tree.get(5);
-//		if (node != null) {
-//			System.out.println(node.value);
-//		}
-		if (root == null) {
-			System.out.println("root is null");
+		BinarySearchTree.Node node = tree.get(5);
+		if (tree.get(5) != null) {
+			System.out.println(node.value);
 		}
-		tree.getFontOrder(root);
+
+		tree.getFontOrder();
 		System.out.println();
-		tree.getMiddleOrder(root);
+		tree.getMiddleOrder();
 		System.out.println();
-		tree.getBehindOrder(root);
+		tree.getBehindOrder();
 		System.out.println();
 		
 		
