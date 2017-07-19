@@ -29,7 +29,7 @@ public class Search {
 	}
 	
 	//²åÖµ²éÕÒ
-	public int InsertionSearch(int[] a, int left, int right, int value) {
+	public int insertionSearch(int[] a, int left, int right, int value) {
 		if (left > right) {
 			return -1;
 		} 
@@ -50,4 +50,5 @@ public class Search {
 			return binarySearch(a, left, temp - 1, value);
 		}
 	}
+	
 }
