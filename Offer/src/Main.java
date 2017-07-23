@@ -33,7 +33,7 @@ public class Main {
 		
 		//System.out.println(new Fibonacci().Fibonacci2(6));
 		//System.out.println(new JumpFloor().JumpFloorII(3));
-		System.out.println(new RectCover().RectCover(3));
+		//System.out.println(new RectCover().RectCover(3));
 	}
 	
 //	public static void RootLeftRight(ReConstructBinaryTree.TreeNode root) {
