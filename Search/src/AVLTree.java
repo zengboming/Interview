@@ -202,5 +202,59 @@ public class AVLTree {
 		return null;
 	}
 	
+	public void destroy() {
+		destroy(root);
+	}
 	
+	private void destroy(AVLNode root) {
+		if (root == null) {
+			return ;
+		}
+		
+		if (root.left != null) {
+			destroy(root.left);
+		}
+		
+		if (root.right != null) {
+			destroy(root.right);
+		}
+		
+		root = null;
+	}
+	
+	public void preOrder() {
+		preOrder(root);
+	}
+	
+	private void preOrder(AVLNode node) {
+		if (node != null) {
+			System.out.print(node.value + " ");
+			preOrder(node.left);
+			preOrder(node.right);
+		}
+	}
+	
+	public void inOrder() {
+		inOrder(root);
+	}
+	
+	private void inOrder(AVLNode node) {
+		if (node != null) {
+			inOrder(node.left);
+			System.out.print(node.value + " ");
+			inOrder(node.right);
+		}
+	}
+	
+	public void postOrder() {
+		postOrder(root);
+	}
+	
+	private void postOrder(AVLNode node) {
+		if (node != null) {
+			postOrder(node.left);
+			postOrder(node.right);
+			System.out.print(node.value + " ");
+		}
+	}
 }
