@@ -1,5 +1,3 @@
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 public class AVLTree {
 
 	private class AVLNode {
@@ -46,8 +44,8 @@ public class AVLTree {
 		k2.left = k1.right;
 		k1.right = k2;
 		
-		k2.height = max(getHeight(k2.left), getHeight(k2.right));
-		k1.height = max(getHeight(k1.left), getHeight(k1.right));
+		k2.height = max(getHeight(k2.left), getHeight(k2.right)) + 1;
+		k1.height = max(getHeight(k1.left), k2.height) + 1;
 		return k1;
 	}
 	
@@ -56,8 +54,8 @@ public class AVLTree {
 		k1.right = k2.left;
 		k2.left = k1;
 		
-		k2.height = max(getHeight(k2.left), getHeight(k2.right));
-		k1.height = max(getHeight(k1.left), getHeight(k1.right));
+		k1.height = max(getHeight(k1.left), getHeight(k1.right)) + 1;
+		k2.height = max(k1.height, getHeight(k2.right)) + 1;
 		return k2;
 	}
 	
@@ -102,7 +100,7 @@ public class AVLTree {
 				}
 			}
 		}
-		node.height = max(getHeight(node.left), getHeight(node.right));
+		node.height = max(getHeight(node.left), getHeight(node.right)) + 1;
 		
 		return node;
 	}
@@ -111,6 +109,10 @@ public class AVLTree {
 		return remove(root, value);
 	}
 	
+	//删除分为三种情况：
+	//1.叶子结点
+	//2.只有一个孩子结点
+	//3.既有左子树 又有右子树
 	private AVLNode remove(AVLNode node, int value) {
 		if (node == null) {
 			return null;
