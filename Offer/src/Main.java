@@ -41,7 +41,9 @@ public class Main {
 		//System.out.println(new Power().Power(2, -3));
 		int a[] = {1,2,3,4,5,6,7};
 		new ReOrderArray().reOrderArray(a);
-		System.out.println(a);
+		for (int i = 0; i < a.length;  i++) {
+			System.out.println(a[i]);
+		}
 	}
 	
 //	public static void RootLeftRight(ReConstructBinaryTree.TreeNode root) {
