@@ -34,6 +34,14 @@ public class Main {
 		//System.out.println(new Fibonacci().Fibonacci2(6));
 		//System.out.println(new JumpFloor().JumpFloorII(3));
 		//System.out.println(new RectCover().RectCover(3));
+		
+		//System.out.println(new NumberOf1().numberOf1(9));
+		//System.out.println(new NumberOf1().numberOf1(-9));
+		
+		//System.out.println(new Power().Power(2, -3));
+		int a[] = {1,2,3,4,5,6,7};
+		new ReOrderArray().reOrderArray(a);
+		System.out.println(a);
 	}
 	
 //	public static void RootLeftRight(ReConstructBinaryTree.TreeNode root) {
