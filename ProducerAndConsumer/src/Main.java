@@ -4,12 +4,19 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Storage storage = new Storage();
-		new Thread(new Consumer(storage, "消费者1")).start();
-		new Thread(new Consumer(storage, "消费者2")).start();
-		new Thread(new Consumer(storage, "消费者3")).start();
+		Producer producer1 = new Producer(storage, "生产者1");
+		Producer producer2 = new Producer(storage, "生产者2");
+		Producer producer3 = new Producer(storage, "生产者3");
 		
-		new Thread(new Producer(storage, "生产者1")).start();
-		new Thread(new Producer(storage, "生产者2")).start();
-		new Thread(new Producer(storage, "生产者3")).start();
+		Consumer consumer1 = new Consumer(storage, "消费者1");
+		Consumer consumer2 = new Consumer(storage, "消费者2");
+		Consumer consumer3 = new Consumer(storage, "消费者3");
+		
+		new Thread(producer1).start();
+		new Thread(producer2).start();
+		new Thread(producer3).start();
+		new Thread(consumer1).start();
+		new Thread(consumer2).start();
+		new Thread(consumer3).start();
 	}
 }

@@ -1,40 +1,42 @@
+import java.util.LinkedList;
+
 //仓库类Storage实现缓冲区
 public class Storage {
 	
-	private int number = 0;
-	// 仓库最大存储量 
-	private final int MAX_NUM = 5;
-	// 仓库存储的载体 
-	private Object obj = new Object();
+	private int number;
+	private final int MAX_NUM = 10;
+	private LinkedList<Object> list1;
 	
-	public void produce() throws InterruptedException {
-		//同步
-		synchronized (obj) {
+	public Storage() {
+		number = 0;
+		list1 = new LinkedList<>();
+	}
+	
+	public void produce(String name) throws InterruptedException{
+		synchronized (list1) {
 			while (number == MAX_NUM) {
-				System.out.println("box is full,size = " + number);
-				//阻塞,线程等待,释放锁
-				obj.wait();
+				System.out.println(name + ":box is full,size = " + number);
+				list1.wait();
 			}
 			
+			list1.add(new Object());
 			number++;
-			System.out.println("produce success number = " + number);
-			//唤醒当前对象的所有等待的线程
-			obj.notifyAll();
+			System.out.println(name + ":produce success number = " + number);
+			list1.notifyAll();
 		}
 	}
 	
-	public void consume() throws InterruptedException {
-		//同步
-		synchronized (obj) {
+	public void consume(String name) throws InterruptedException {
+		synchronized (list1) {
 			while (number == 0) {
-				System.out.println("box is empty,size = " + number);
-				//阻塞
-				obj.wait();
+				System.out.println(name + ":box is empty,size = " + number);
+				list1.wait();
 			}
 			
+			list1.remove();
 			number--;
-			System.out.println("comsume success number = " + number);
-			obj.notifyAll();
+			System.out.println(name + ":comsume success number = " + number);
+			list1.notifyAll();
 		}
 	}
 	

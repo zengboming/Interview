@@ -6,18 +6,20 @@ public class Producer implements Runnable {
 	private String name;
 	
 	public Producer(Storage storage, String name) {
-		this.storage = storage;
 		this.name = name;
+		this.storage = storage;
 	}
-
+	
 	@Override
 	public void run() {
 		while (true) {
 			try {
-				storage.produce();
+				storage.produce(name);
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
+	
 }
