@@ -39,11 +39,18 @@ public class Main {
 		//System.out.println(new NumberOf1().numberOf1(-9));
 		
 		//System.out.println(new Power().Power(2, -3));
-		int a[] = {1,2,3,4,5,6,7};
-		new ReOrderArray().reOrderArray(a);
-		for (int i = 0; i < a.length;  i++) {
-			System.out.println(a[i]);
-		}
+//		int a[] = {1,2,3,4,5,6,7};
+//		new ReOrderArray().reOrderArray(a);
+//		for (int i = 0; i < a.length;  i++) {
+//			System.out.println(a[i]);
+//		}
+		//Matrix matrix = new Matrix(4);
+		//NumberOf1Between1AndN n = new NumberOf1Between1AndN();
+		//System.out.println(n.NumberOf1Between1AndN_Solution(13));
+		PrintMinNumber printMinNumber = new PrintMinNumber();
+		int[] numbers = {3334,3,3333332};
+		System.out.println(printMinNumber.PrintMinNumber(numbers));
+
 	}
 	
 //	public static void RootLeftRight(ReConstructBinaryTree.TreeNode root) {

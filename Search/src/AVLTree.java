@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class AVLTree {
 
 	private class AVLNode {
@@ -258,5 +260,33 @@ public class AVLTree {
 			postOrder(node.right);
 			System.out.print(node.value + " ");
 		}
+	}
+	
+	public void levelIterator() {
+		levelIterator(root);
+	}
+	
+	private void levelIterator(AVLNode node) {
+		if (node == null) {
+			return;
+		}
+		
+		LinkedList<AVLNode> queue = new LinkedList<>();
+		AVLNode current = null;
+		//将根结点入队
+		queue.offer(root);
+		while(!queue.isEmpty()) {
+			current = queue.poll();
+			System.out.print(current.value + " ");
+			//如果当前节点的左节点不为空入队，把左节点入队  
+			if (current.left != null) {
+				queue.offer(current.left);
+			}
+			//如果当前节点的右节点不为空，把右节点入队  
+			if (current.right != null) {
+				queue.offer(current.right);
+			}
+		}
+		
 	}
 }
